@@ -1,16 +1,74 @@
-# React + Vite
+# 🍽️ Rasoyi - AI Recipe Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Rasoyi is a modern AI-powered recipe generator that helps users discover delicious recipes based on the ingredients they already have at home.
 
-Currently, two official plugins are available:
+The application provides a clean, responsive, and user-friendly interface, making it easy to explore recipes without wasting ingredients.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- 🥕 Add ingredients available in your kitchen
+- 🤖 AI-powered recipe suggestions
+- 📱 Fully responsive design
+- 🎨 Modern and intuitive UI
+- ⚡ Fast and interactive user experience
+- 🔍 Search and browse recipes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the Oxlint configuration
+### Frontend
+- React.js
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Bootstrap
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Backend *(Coming Soon)*
+- Node.js
+- Express.js
+- MongoDB
+- AI API Integration
+
+## 📂 Project Status
+
+🚧 **Frontend Completed**
+
+Currently working on:
+- Backend development
+- AI recipe generation
+- Database integration
+- User authentication
+- Favorite recipes
+- Recipe history
+
+## 📸 Screenshots
+
+> Screenshots will be added soon.
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
+```
+
+## 🌟 Future Enhancements
+
+- AI-generated recipes based on available ingredients
+- Save favorite recipes
+- User authentication
+- Recipe history
+- Nutrition information
+- Dark mode
+
+## 👩‍💻 Author
+
+**Stuti Mistry**
+
+GitHub: https://github.com/stutimistry
+
+LinkedIn: https://linkedin.com/in/stutimistry
