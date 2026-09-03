@@ -25,7 +25,7 @@ export default function NutritionLabel({ nutrition, servingSize }) {
           key={row.label}
           className={`flex items-baseline justify-between py-1.5 ${
             i !== rows.length - 1 ? "label-rule-thin" : ""
-          }`}
+          }`} 
         >
           <span className="font-body text-sm">{row.label}</span>
           <span className="font-mono text-sm font-medium">
