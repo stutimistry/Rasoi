@@ -8,7 +8,7 @@ export default function History() {
 
   useEffect(() => {
     getHistory().then(setItems);
-  }, []);
+  }, []);``
 
   return (
     <div className="flex">
