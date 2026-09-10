@@ -1,10 +1,130 @@
+// import { useEffect, useState } from "react";
+// import { useParams, Link } from "react-router-dom";
+// import Sidebar from "../components/Sidebar";
+// import NutritionLabel from "../components/NutritionLabel";
+// import FavoriteButton from "../components/FavoriteButton";
+// import ChatWidget from "../components/ChatWidget";
+// import { getRecipeById, toggleFavorite, getMissingIngredients } from "../services/mockApi";
+
+// export default function RecipeDetails() {
+//   const { id } = useParams();
+//   const [recipe, setRecipe] = useState(null);
+
+//   useEffect(() => {
+//     getRecipeById(id).then(setRecipe);
+//   }, [id]);
+
+//   const handleFavorite = async () => {
+//     const updated = await toggleFavorite(id);
+//     setRecipe(updated);
+//   };
+
+//   if (!recipe) {
+//     return (
+//       <div className="flex">
+//         <Sidebar />
+//         <main className="flex-1 px-8 py-8">
+//           <p className="text-steel">Loading recipe…</p>
+//         </main>
+//       </div>
+//     );
+//   }
+
+//   const missing = getMissingIngredients(
+//     recipe.ingredients.filter((i) => i.have).map((i) => i.name),
+//     recipe
+//   );
+
+//   return (
+//     <div className="flex">
+//       <Sidebar />
+//       <main className="flex-1 px-8 py-8 max-w-4xl">
+//         <Link to="/dashboard" className="text-sm text-cardamom hover:underline mb-4 inline-block">
+//           ← Back to dashboard
+//         </Link>
+
+//         <div className="relative rounded-xl overflow-hidden h-64 mb-6 bg-papad-dark">
+//           <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover" />
+//           <div className="absolute top-4 right-4">
+//             <FavoriteButton active={recipe.favorite} onToggle={handleFavorite} />
+//           </div>
+//         </div>
+
+//         <p className="font-mono text-xs uppercase tracking-wide text-cardamom mb-1">
+//           {recipe.cuisine} · {recipe.difficulty} · {recipe.time} min
+//         </p>
+//         <h1 className="font-display text-3xl font-semibold mb-6">{recipe.title}</h1>
+
+//         <div className="grid md:grid-cols-3 gap-8">
+//           <div className="md:col-span-2 space-y-8">
+//             <section>
+//               <h2 className="font-display text-lg font-semibold mb-3">Ingredients</h2>
+//               <ul className="grid sm:grid-cols-2 gap-2">
+//                 {recipe.ingredients.map((ing) => (
+//                   <li
+//                     key={ing.name}
+//                     className={`text-sm px-3 py-2 rounded-lg border ${
+//                       ing.have
+//                         ? "border-cardamom/30 bg-cardamom/5 text-ink"
+//                         : "border-chili/30 bg-chili/5 text-ink"
+//                     }`}
+//                   >
+//                     {ing.have ? "✓" : "＋"} {ing.name}
+//                   </li>
+//                 ))}
+//               </ul>
+//               {missing.length > 0 && (
+//                 <p className="text-xs text-steel mt-2">
+//                   Missing: {missing.map((m) => m.name).join(", ")} — add these to your{" "}
+//                   <Link to="/shopping-list" className="text-cardamom hover:underline">
+//                     shopping list
+//                   </Link>
+//                   .
+//                 </p>
+//               )}
+//             </section>
+
+//             <section>
+//               <h2 className="font-display text-lg font-semibold mb-3">Cooking steps</h2>
+//               <ol className="space-y-3">
+//                 {recipe.instructions.map((step, i) => (
+//                   <li key={i} className="flex gap-3 text-sm">
+//                     <span className="font-mono text-cardamom shrink-0">{String(i + 1).padStart(2, "0")}</span>
+//                     <span>{step}</span>
+//                   </li>
+//                 ))}
+//               </ol>
+//             </section>
+
+//             <section className="bg-turmeric/10 border border-turmeric/30 rounded-lg p-4">
+//               <h2 className="font-display text-sm font-semibold mb-1">Cooking tip</h2>
+//               <p className="text-sm text-ink">{recipe.tips}</p>
+//             </section>
+//           </div>
+
+//           <div>
+//             <NutritionLabel nutrition={recipe.nutrition} servingSize={recipe.servingSize} />
+//           </div>
+//         </div>
+//       </main>
+//       <ChatWidget />
+//     </div>
+//   );
+// }
+
+
+
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import NutritionLabel from "../components/NutritionLabel";
 import FavoriteButton from "../components/FavoriteButton";
 import ChatWidget from "../components/ChatWidget";
-import { getRecipeById, toggleFavorite, getMissingIngredients } from "../services/mockApi";
+import {
+  getRecipeById,
+  toggleFavorite,
+  getMissingIngredients,
+} from "../services/mockApi";
 
 export default function RecipeDetails() {
   const { id } = useParams();
@@ -35,30 +155,67 @@ export default function RecipeDetails() {
     recipe
   );
 
+  // Convert YouTube Shorts URL into an embeddable URL
+  const getYouTubeEmbedUrl = (url) => {
+    if (!url) return null;
+
+    const videoId = url.split("/shorts/")[1]?.split("?")[0];
+
+    if (videoId) {
+      return "https://www.youtube.com/embed/" + videoId;
+    }
+
+    return url;
+  };
+
+  const youtubeEmbedUrl = getYouTubeEmbedUrl(recipe.youtubeVideo);
+
   return (
     <div className="flex">
       <Sidebar />
+
       <main className="flex-1 px-8 py-8 max-w-4xl">
-        <Link to="/dashboard" className="text-sm text-cardamom hover:underline mb-4 inline-block">
+        <Link
+          to="/dashboard"
+          className="text-sm text-cardamom hover:underline mb-4 inline-block"
+        >
           ← Back to dashboard
         </Link>
 
+        {/* Recipe Image */}
         <div className="relative rounded-xl overflow-hidden h-64 mb-6 bg-papad-dark">
-          <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover" />
+          <img
+            src={recipe.image}
+            alt={recipe.title}
+            className="w-full h-full object-cover"
+          />
+
           <div className="absolute top-4 right-4">
-            <FavoriteButton active={recipe.favorite} onToggle={handleFavorite} />
+            <FavoriteButton
+              active={recipe.favorite}
+              onToggle={handleFavorite}
+            />
           </div>
         </div>
 
+        {/* Recipe Header */}
         <p className="font-mono text-xs uppercase tracking-wide text-cardamom mb-1">
           {recipe.cuisine} · {recipe.difficulty} · {recipe.time} min
         </p>
-        <h1 className="font-display text-3xl font-semibold mb-6">{recipe.title}</h1>
+
+        <h1 className="font-display text-3xl font-semibold mb-6">
+          {recipe.title}
+        </h1>
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-8">
+
+            {/* Ingredients */}
             <section>
-              <h2 className="font-display text-lg font-semibold mb-3">Ingredients</h2>
+              <h2 className="font-display text-lg font-semibold mb-3">
+                Ingredients
+              </h2>
+
               <ul className="grid sm:grid-cols-2 gap-2">
                 {recipe.ingredients.map((ing) => (
                   <li
@@ -73,10 +230,15 @@ export default function RecipeDetails() {
                   </li>
                 ))}
               </ul>
+
               {missing.length > 0 && (
                 <p className="text-xs text-steel mt-2">
-                  Missing: {missing.map((m) => m.name).join(", ")} — add these to your{" "}
-                  <Link to="/shopping-list" className="text-cardamom hover:underline">
+                  Missing: {missing.map((m) => m.name).join(", ")} — add these
+                  to your{" "}
+                  <Link
+                    to="/shopping-list"
+                    className="text-cardamom hover:underline"
+                  >
                     shopping list
                   </Link>
                   .
@@ -84,29 +246,64 @@ export default function RecipeDetails() {
               )}
             </section>
 
+            {/* Cooking Steps */}
             <section>
-              <h2 className="font-display text-lg font-semibold mb-3">Cooking steps</h2>
+              <h2 className="font-display text-lg font-semibold mb-3">
+                Cooking steps
+              </h2>
+
               <ol className="space-y-3">
                 {recipe.instructions.map((step, i) => (
                   <li key={i} className="flex gap-3 text-sm">
-                    <span className="font-mono text-cardamom shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-mono text-cardamom shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
                     <span>{step}</span>
                   </li>
                 ))}
               </ol>
             </section>
 
+            {/* YouTube Short */}
+            {youtubeEmbedUrl && (
+              <section>
+                <h2 className="font-display text-lg font-semibold mb-3">
+                  🎥 Watch Recipe Video
+                </h2>
+
+                <div className="rounded-xl overflow-hidden bg-black max-w-sm mx-auto">
+                  <iframe
+                    src={youtubeEmbedUrl}
+                    title={recipe.title + " YouTube Short"}
+                    className="w-full aspect-[9/16]"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </section>
+            )}
+
+            {/* Cooking Tip */}
             <section className="bg-turmeric/10 border border-turmeric/30 rounded-lg p-4">
-              <h2 className="font-display text-sm font-semibold mb-1">Cooking tip</h2>
+              <h2 className="font-display text-sm font-semibold mb-1">
+                Cooking tip
+              </h2>
+
               <p className="text-sm text-ink">{recipe.tips}</p>
             </section>
           </div>
 
+          {/* Nutrition */}
           <div>
-            <NutritionLabel nutrition={recipe.nutrition} servingSize={recipe.servingSize} />
+            <NutritionLabel
+              nutrition={recipe.nutrition}
+              servingSize={recipe.servingSize}
+            />
           </div>
         </div>
       </main>
+
       <ChatWidget />
     </div>
   );

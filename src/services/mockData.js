@@ -1,698 +1,4 @@
 
-// export const CUISINES = [
-//   "North Indian",
-//   "South Indian",
-//   "Gujarati",
-//   "Maharashtrian",
-//   "Bengali",
-//   "Chinese",
-//   "Italian",
-//   "Continental",
-//   "Mexican",
-//   "Thai",
-// ];
-
-// export const DIETS = [
-//   "Vegetarian",
-//   "Vegan",
-//   "Jain",
-//   "Gluten Free",
-//   "Dairy Free",
-//   "High Protein",
-//   "Keto",
-//   "Low Carb",
-// ];
-
-// export const DIFFICULTIES = ["Easy", "Medium", "Hard"];
-
-// export const mockUser = {
-//   id: "u1",
-//   name: "Stuti",
-//   email: "stuti@example.com",
-// };
-
-// export const mockRecipes = [
-//   {
-//     id: "r1",
-//     title: "Paneer Tomato Masala",
-//     cuisine: "North Indian",
-//     diet: ["Vegetarian", "Gluten Free"],
-//     difficulty: "Easy",
-//     time: 30,
-//     image:
-//       "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80",
-//     ingredients: [
-//       { name: "Paneer", have: true },
-//       { name: "Tomato", have: true },
-//       { name: "Onion", have: true },
-//       { name: "Garlic", have: true },
-//       { name: "Capsicum", have: false },
-//       { name: "Cream", have: false },
-//     ],
-//     instructions: [
-//       "Cube the paneer and lightly pan-fry until golden, then set aside.",
-//       "Saute onion and garlic until translucent.",
-//       "Add chopped tomato and cook down into a thick masala base.",
-//       "Fold in capsicum and paneer, simmer 5 minutes.",
-//       "Finish with a splash of cream and serve hot.",
-//     ],
-//     nutrition: { calories: 420, protein: 22, carbs: 18, fat: 28, fiber: 4, sugar: 7 },
-//     servingSize: "2 servings",
-//     tips: "Swap paneer for firm tofu to make this vegan — press it first to remove excess water.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r2",
-//     title: "Garlic Fried Rice",
-//     cuisine: "Chinese",
-//     diet: ["Vegetarian", "Dairy Free"],
-//     difficulty: "Easy",
-//     time: 20,
-//     image:
-//       "/Garlic-Fried-Rice.jpg",
-//     ingredients: [
-//       { name: "Rice", have: true },
-//       { name: "Garlic", have: true },
-//       { name: "Onion", have: true },
-//       { name: "Spring Onion", have: false },
-//       { name: "Soy Sauce", have: false },
-//     ],
-//     instructions: [
-//       "Use day-old rice so the grains stay separate.",
-//       "Fry minced garlic in oil until fragrant, add onion.",
-//       "Toss in rice and soy sauce, stir-fry on high heat.",
-//       "Top with spring onion and serve.",
-//     ],
-//     nutrition: { calories: 310, protein: 6, carbs: 58, fat: 7, fiber: 2, sugar: 2 },
-//     servingSize: "2 servings",
-//     tips: "A splash of sesame oil at the end adds a lot of aroma for very little effort.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r3",
-//     title: "Gujarati Kadhi",
-//     cuisine: "Gujarati",
-//     diet: ["Vegetarian", "Gluten Free", "Jain"],
-//     difficulty: "Medium",
-//     time: 40,
-//     image:
-//       "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=800&q=80",
-//     ingredients: [
-//       { name: "Yogurt", have: false },
-//       { name: "Gram Flour", have: false },
-//       { name: "Ginger", have: true },
-//       { name: "Curry Leaves", have: false },
-//     ],
-//     instructions: [
-//       "Whisk yogurt with gram flour and water until smooth.",
-//       "Temper mustard seeds and curry leaves in ghee.",
-//       "Pour in the yogurt mixture, simmer gently while stirring.",
-//       "Cook until slightly thickened, season with a little jaggery and salt.",
-//     ],
-//     nutrition: { calories: 180, protein: 7, carbs: 20, fat: 6, fiber: 2, sugar: 9 },
-//     servingSize: "3 servings",
-//     tips: "Keep the flame low once the yogurt goes in, or it can split.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r4",
-//     title: "Masala Dosa",
-//     cuisine: "South Indian",
-//     diet: ["Vegetarian", "Gluten Free", "Dairy Free"],
-//     difficulty: "Medium",
-//     time: 45,
-//     image:
-//       "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800&q=80",
-//     ingredients: [
-//       { name: "Dosa Batter", have: false },
-//       { name: "Potato", have: true },
-//       { name: "Onion", have: true },
-//       { name: "Mustard Seeds", have: false },
-//       { name: "Curry Leaves", have: false },
-//       { name: "Turmeric", have: true },
-//     ],
-//     instructions: [
-//       "Boil and mash the potatoes for the filling.",
-//       "Temper mustard seeds, curry leaves, and onion in oil until fragrant.",
-//       "Add turmeric and mashed potato, mix well to make the masala filling.",
-//       "Spread dosa batter thin on a hot griddle, drizzle oil around the edges.",
-//       "Once crisp, add the potato masala to one side and fold into a roll.",
-//       "Serve hot with coconut chutney and sambar.",
-//     ],
-//     nutrition: { calories: 380, protein: 8, carbs: 62, fat: 11, fiber: 5, sugar: 4 },
-//     servingSize: "2 servings",
-//     tips: "Let the batter ferment overnight for the best texture and tang.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r5",
-//     title: "Sambar",
-//     cuisine: "South Indian",
-//     diet: ["Vegetarian", "Vegan", "Gluten Free"],
-//     difficulty: "Medium",
-//     time: 40,
-//     image:
-//       "/recipe-images/sambar.svg",
-//     ingredients: [
-//       { name: "Toor Dal", have: false },
-//       { name: "Drumstick", have: false },
-//       { name: "Tamarind", have: false },
-//       { name: "Sambar Powder", have: false },
-//       { name: "Tomato", have: true },
-//     ],
-//     instructions: [
-//       "Pressure-cook toor dal until soft and mash lightly.",
-//       "Simmer tamarind pulp with chopped vegetables and drumstick.",
-//       "Add sambar powder and cooked dal, simmer until vegetables are tender.",
-//       "Finish with a mustard seed and curry leaf tempering in ghee.",
-//     ],
-//     nutrition: { calories: 210, protein: 11, carbs: 32, fat: 4, fiber: 8, sugar: 6 },
-//     servingSize: "3 servings",
-//     tips: "A pinch of jaggery balances the tamarind's sourness nicely.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r6",
-//     title: "Dal Makhani",
-//     cuisine: "North Indian",
-//     diet: ["Vegetarian", "Gluten Free"],
-//     difficulty: "Medium",
-//     time: 50,
-//     image:
-//       "/recipe-images/dal-makhani.svg",
-//     ingredients: [
-//       { name: "Black Lentils", have: false },
-//       { name: "Kidney Beans", have: false },
-//       { name: "Butter", have: true },
-//       { name: "Cream", have: false },
-//       { name: "Tomato", have: true },
-//       { name: "Ginger Garlic Paste", have: true },
-//     ],
-//     instructions: [
-//       "Soak black lentils and kidney beans overnight, then pressure-cook until soft.",
-//       "Saute ginger garlic paste and tomato in butter until the oil separates.",
-//       "Add the cooked lentils and beans, simmer on low heat for at least 30 minutes.",
-//       "Stir in cream and a knob of butter just before serving.",
-//     ],
-//     nutrition: { calories: 340, protein: 14, carbs: 38, fat: 15, fiber: 9, sugar: 5 },
-//     servingSize: "3 servings",
-//     tips: "The longer this simmers on low, the richer it tastes — don't rush it.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r7",
-//     title: "Undhiyu",
-//     cuisine: "Gujarati",
-//     diet: ["Vegetarian", "Gluten Free", "Jain"],
-//     difficulty: "Hard",
-//     time: 60,
-//     image:
-//       "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80",
-//     ingredients: [
-//       { name: "Surti Papdi", have: false },
-//       { name: "Purple Yam", have: false },
-//       { name: "Sweet Potato", have: false },
-//       { name: "Green Garlic", have: false },
-//       { name: "Fresh Fenugreek", have: false },
-//     ],
-//     instructions: [
-//       "Prepare the muthiya (fenugreek dumplings) and lightly fry.",
-//       "Layer the mixed vegetables in a heavy pot with the spice paste.",
-//       "Cook on low heat, covered, until all vegetables are tender.",
-//       "Fold in the muthiya at the end and simmer 5 more minutes.",
-//       "Serve hot with puri.",
-//     ],
-//     nutrition: { calories: 290, protein: 8, carbs: 42, fat: 10, fiber: 9, sugar: 8 },
-//     servingSize: "4 servings",
-//     tips: "Traditionally a winter dish — undhiyu tastes best when the vegetables are in season.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r8",
-//     title: "Chole Bhature",
-//     cuisine: "North Indian",
-//     diet: ["Vegetarian"],
-//     difficulty: "Medium",
-//     time: 50,
-//     image:
-//       "/recipe-images/chole-bhature.svg",
-//     ingredients: [
-//       { name: "Chickpeas", have: false },
-//       { name: "Onion", have: true },
-//       { name: "Tomato", have: true },
-//       { name: "Chole Masala", have: false },
-//       { name: "Maida", have: false },
-//       { name: "Yogurt", have: false },
-//     ],
-//     instructions: [
-//       "Soak and pressure-cook chickpeas with a tea bag for color and depth.",
-//       "Saute onion and tomato with chole masala until the oil separates.",
-//       "Add the cooked chickpeas and simmer until the gravy thickens.",
-//       "Knead a soft dough with maida and yogurt, rest 2 hours, then deep-fry into bhature.",
-//     ],
-//     nutrition: { calories: 460, protein: 15, carbs: 58, fat: 18, fiber: 10, sugar: 6 },
-//     servingSize: "3 servings",
-//     tips: "Adding a black tea bag while boiling chickpeas gives that classic dark restaurant color.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r9",
-//     title: "Rajma Chawal",
-//     cuisine: "North Indian",
-//     diet: ["Vegetarian", "Gluten Free"],
-//     difficulty: "Easy",
-//     time: 45,
-//     image:
-//       "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&q=80",
-//     ingredients: [
-//       { name: "Kidney Beans", have: false },
-//       { name: "Onion", have: true },
-//       { name: "Tomato", have: true },
-//       { name: "Ginger Garlic Paste", have: true },
-//       { name: "Rice", have: true },
-//     ],
-//     instructions: [
-//       "Soak kidney beans overnight and pressure-cook until soft.",
-//       "Saute onion, ginger garlic paste, and tomato into a thick base.",
-//       "Add the cooked rajma along with its cooking water, simmer 20 minutes.",
-//       "Serve hot over steamed rice.",
-//     ],
-//     nutrition: { calories: 390, protein: 16, carbs: 64, fat: 6, fiber: 12, sugar: 5 },
-//     servingSize: "3 servings",
-//     tips: "Mash a few beans while simmering to naturally thicken the gravy.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r10",
-//     title: "Idli with Coconut Chutney",
-//     cuisine: "South Indian",
-//     diet: ["Vegetarian", "Vegan", "Gluten Free"],
-//     difficulty: "Easy",
-//     time: 30,
-//     image:
-//       "/recipe-images/idli-chutney.svg",
-//     ingredients: [
-//       { name: "Idli Batter", have: false },
-//       { name: "Coconut", have: false },
-//       { name: "Green Chili", have: false },
-//       { name: "Mustard Seeds", have: false },
-//     ],
-//     instructions: [
-//       "Grease the idli plates and pour in fermented batter.",
-//       "Steam for 12-15 minutes until a toothpick comes out clean.",
-//       "Grind coconut with green chili and a little water for the chutney.",
-//       "Temper with mustard seeds and curry leaves, pour over the chutney.",
-//     ],
-//     nutrition: { calories: 190, protein: 5, carbs: 36, fat: 3, fiber: 3, sugar: 2 },
-//     servingSize: "2 servings",
-//     tips: "A well-fermented batter is the real secret — don't rush the overnight rest.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r11",
-//     title: "Khaman Dhokla",
-//     cuisine: "Gujarati",
-//     diet: ["Vegetarian", "Gluten Free"],
-//     difficulty: "Easy",
-//     time: 25,
-//     image:
-//       "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=800&q=80",
-//     ingredients: [
-//       { name: "Besan", have: false },
-//       { name: "Yogurt", have: false },
-//       { name: "Eno Fruit Salt", have: false },
-//       { name: "Mustard Seeds", have: false },
-//       { name: "Green Chili", have: false },
-//     ],
-//     instructions: [
-//       "Whisk besan with yogurt and water into a smooth batter.",
-//       "Add Eno right before steaming and pour into a greased tin immediately.",
-//       "Steam for 15 minutes until a toothpick comes out clean.",
-//       "Temper mustard seeds and green chili in oil, pour over the steamed dhokla with a splash of water and sugar.",
-//     ],
-//     nutrition: { calories: 160, protein: 7, carbs: 24, fat: 4, fiber: 4, sugar: 5 },
-//     servingSize: "3 servings",
-//     tips: "Pour the tempering while the dhokla is still warm so it soaks in properly.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r12",
-//     title: "Misal Pav",
-//     cuisine: "Maharashtrian",
-//     diet: ["Vegetarian", "Vegan"],
-//     difficulty: "Medium",
-//     time: 45,
-//     image:
-//       "/recipe-images/misal-pav.svg",
-//     ingredients: [
-//       { name: "Moth Beans Sprouts", have: false },
-//       { name: "Onion", have: true },
-//       { name: "Tomato", have: true },
-//       { name: "Goda Masala", have: false },
-//       { name: "Pav Bread", have: false },
-//     ],
-//     instructions: [
-//       "Pressure-cook the sprouted moth beans until tender.",
-//       "Saute onion and tomato with goda masala into a spicy base.",
-//       "Add the cooked sprouts along with water, simmer into a thin, spicy curry.",
-//       "Top with farsan, chopped onion, and a squeeze of lime, serve with pav.",
-//     ],
-//     nutrition: { calories: 340, protein: 12, carbs: 46, fat: 12, fiber: 8, sugar: 4 },
-//     servingSize: "3 servings",
-//     tips: "Adjust the curry's thickness with water to your liking — Kolhapuri style is thinner and spicier.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r13",
-//     title: "Bengali Aloo Posto",
-//     cuisine: "Bengali",
-//     diet: ["Vegetarian", "Vegan", "Gluten Free", "Jain"],
-//     difficulty: "Easy",
-//     time: 25,
-//     image:
-//       "/recipe-images/bengali-aloo-posto.svg",
-//     ingredients: [
-//       { name: "Potato", have: true },
-//       { name: "Poppy Seeds", have: false },
-//       { name: "Green Chili", have: false },
-//       { name: "Mustard Oil", have: false },
-//       { name: "Nigella Seeds", have: false },
-//     ],
-//     instructions: [
-//       "Soak poppy seeds and grind into a smooth paste with green chili.",
-//       "Temper nigella seeds in mustard oil until fragrant.",
-//       "Add diced potato and saute until lightly golden.",
-//       "Stir in the poppy seed paste with a splash of water, cover and cook until the potato is tender.",
-//     ],
-//     nutrition: { calories: 220, protein: 5, carbs: 30, fat: 9, fiber: 4, sugar: 2 },
-//     servingSize: "2 servings",
-//     tips: "Soaking the poppy seeds in warm water for 20 minutes makes them much easier to grind smooth.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r14",
-//     title: "Dal Dhokli",
-//     cuisine: "Gujarati",
-//     diet: ["Vegetarian"],
-//     difficulty: "Medium",
-//     time: 45,
-//     image: "/recipe-images/dal-dhokli.svg",
-//     ingredients: [
-//       { name: "Toor Dal", have: false },
-//       { name: "Wheat Flour", have: true },
-//       { name: "Jaggery", have: false },
-//       { name: "Tamarind", have: false },
-//       { name: "Mustard Seeds", have: false },
-//     ],
-//     instructions: [
-//       "Pressure-cook toor dal with turmeric until soft, then mash lightly.",
-//       "Knead a stiff wheat dough, roll thin, and cut into small diamond-shaped dhokli pieces.",
-//       "Simmer the dal with tamarind and jaggery for a sweet-tangy base.",
-//       "Drop the dhokli pieces into the simmering dal and cook until soft, stirring occasionally.",
-//       "Finish with a mustard seed and curry leaf tempering.",
-//     ],
-//     nutrition: { calories: 310, protein: 12, carbs: 52, fat: 6, fiber: 8, sugar: 9 },
-//     servingSize: "3 servings",
-//     tips: "Stir occasionally once the dhokli goes in so the pieces don't stick together.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r15",
-//     title: "Gujarati Dal Chawal",
-//     cuisine: "Gujarati",
-//     diet: ["Vegetarian", "Gluten Free"],
-//     difficulty: "Easy",
-//     time: 35,
-//     image: "/recipe-images/gujarati-dal-chawal.svg",
-//     ingredients: [
-//       { name: "Toor Dal", have: false },
-//       { name: "Rice", have: true },
-//       { name: "Jaggery", have: false },
-//       { name: "Tomato", have: true },
-//       { name: "Mustard Seeds", have: false },
-//     ],
-//     instructions: [
-//       "Pressure-cook toor dal until soft along with turmeric and tomato.",
-//       "Temper mustard seeds, cumin, and a pinch of asafoetida in ghee.",
-//       "Add the tempering to the dal along with jaggery and a splash of lemon for the classic sweet-tangy Gujarati taste.",
-//       "Simmer 10 minutes and serve hot over steamed rice.",
-//     ],
-//     nutrition: { calories: 320, protein: 11, carbs: 58, fat: 5, fiber: 7, sugar: 8 },
-//     servingSize: "3 servings",
-//     tips: "The sweet-tangy balance is the signature of Gujarati dal — don't skip the jaggery and lemon.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r16",
-//     title: "Chilli Paneer",
-//     cuisine: "Chinese",
-//     diet: ["Vegetarian"],
-//     difficulty: "Medium",
-//     time: 30,
-//     image: "/recipe-images/chilli-paneer.svg",
-//     ingredients: [
-//       { name: "Paneer", have: false },
-//       { name: "Capsicum", have: false },
-//       { name: "Onion", have: true },
-//       { name: "Soy Sauce", have: false },
-//       { name: "Garlic", have: true },
-//       { name: "Cornflour", have: false },
-//     ],
-//     instructions: [
-//       "Coat paneer cubes in cornflour and shallow-fry until golden and crisp.",
-//       "Stir-fry garlic, onion, and capsicum on high heat until just tender-crisp.",
-//       "Add soy sauce, a little ketchup, and green chili, toss well.",
-//       "Add the fried paneer back in, toss quickly to coat, and serve immediately.",
-//     ],
-//     nutrition: { calories: 340, protein: 16, carbs: 22, fat: 20, fiber: 3, sugar: 5 },
-//     servingSize: "2 servings",
-//     tips: "Keep the heat high and toss fast at the end — that's what gives it the restaurant-style char.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r17",
-//     title: "Khichdi",
-//     cuisine: "North Indian",
-//     diet: ["Vegetarian", "Gluten Free"],
-//     difficulty: "Easy",
-//     time: 30,
-//     image: "/recipe-images/khichdi.svg",
-//     ingredients: [
-//       { name: "Rice", have: true },
-//       { name: "Moong Dal", have: false },
-//       { name: "Ghee", have: true },
-//       { name: "Cumin Seeds", have: false },
-//       { name: "Turmeric", have: true },
-//     ],
-//     instructions: [
-//       "Rinse rice and moong dal together until the water runs clear.",
-//       "Pressure-cook with turmeric and water until soft and porridge-like.",
-//       "Temper cumin seeds in ghee and pour over the cooked khichdi.",
-//       "Serve hot with a dollop of ghee and pickle on the side.",
-//     ],
-//     nutrition: { calories: 260, protein: 9, carbs: 46, fat: 5, fiber: 5, sugar: 1 },
-//     servingSize: "2 servings",
-//     tips: "The ultimate comfort food — great for a light dinner or when you're feeling under the weather.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r18",
-//     title: "Pav Bhaji",
-//     cuisine: "Maharashtrian",
-//     diet: ["Vegetarian"],
-//     difficulty: "Medium",
-//     time: 40,
-//     image: "/recipe-images/pav-bhaji.svg",
-//     ingredients: [
-//       { name: "Potato", have: true },
-//       { name: "Cauliflower", have: false },
-//       { name: "Peas", have: false },
-//       { name: "Pav Bhaji Masala", have: false },
-//       { name: "Pav Bread", have: false },
-//       { name: "Butter", have: true },
-//     ],
-//     instructions: [
-//       "Boil potato, cauliflower, and peas until soft, then mash roughly.",
-//       "Saute onion and tomato with pav bhaji masala in butter until thick.",
-//       "Add the mashed vegetables and simmer, mashing further with a potato masher for a smooth bhaji.",
-//       "Toast the pav buns with butter on a griddle until golden.",
-//       "Serve the bhaji hot with a knob of butter, chopped onion, and lemon alongside the pav.",
-//     ],
-//     nutrition: { calories: 420, protein: 9, carbs: 58, fat: 17, fiber: 8, sugar: 8 },
-//     servingSize: "3 servings",
-//     tips: "Mashing the bhaji well while it simmers is the key to that classic street-style texture.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r19",
-//     title: "Gulab Jamun",
-//     cuisine: "North Indian",
-//     diet: ["Vegetarian"],
-//     difficulty: "Medium",
-//     time: 40,
-//     image: "/recipe-images/gulab-jamun.svg",
-//     ingredients: [
-//       { name: "Khoya", have: false },
-//       { name: "Maida", have: false },
-//       { name: "Sugar", have: false },
-//       { name: "Cardamom", have: false },
-//       { name: "Ghee", have: true },
-//     ],
-//     instructions: [
-//       "Knead khoya and maida into a smooth, crack-free dough.",
-//       "Shape into smooth small balls, ensuring no cracks on the surface.",
-//       "Deep-fry on low-medium heat until evenly golden brown all over.",
-//       "Prepare a cardamom-flavored sugar syrup and soak the fried balls for at least an hour before serving.",
-//     ],
-//     nutrition: { calories: 180, protein: 3, carbs: 28, fat: 7, fiber: 0, sugar: 24 },
-//     servingSize: "6 pieces",
-//     tips: "Fry on low heat — too hot and they'll brown outside while staying raw inside.",
-//     favorite: true,
-//   },
-//   {
-//     id: "r20",
-//     title: "Healthy Veg Burger",
-//     cuisine: "Continental",
-//     diet: ["Vegetarian"],
-//     difficulty: "Easy",
-//     time: 30,
-//     image: "/recipe-images/healthy-burger.svg",
-//     ingredients: [
-//       { name: "Whole Wheat Bun", have: false },
-//       { name: "Chickpeas", have: false },
-//       { name: "Oats", have: false },
-//       { name: "Lettuce", have: false },
-//       { name: "Tomato", have: true },
-//     ],
-//     instructions: [
-//       "Mash boiled chickpeas with oats, herbs, and spices to form a patty mixture.",
-//       "Shape into patties and pan-sear with a little oil until golden on both sides.",
-//       "Toast the whole wheat buns lightly.",
-//       "Assemble with lettuce, tomato, the patty, and a light yogurt-based sauce.",
-//     ],
-//     nutrition: { calories: 380, protein: 15, carbs: 52, fat: 12, fiber: 10, sugar: 6 },
-//     servingSize: "2 burgers",
-//     tips: "Chill the patty mixture for 20 minutes before cooking so it holds together better.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r21",
-//     title: "Veg Pasta",
-//     cuisine: "Italian",
-//     diet: ["Vegetarian"],
-//     difficulty: "Easy",
-//     time: 25,
-//     image: "/recipe-images/veg-pasta.svg",
-//     ingredients: [
-//       { name: "Pasta", have: false },
-//       { name: "Bell Pepper", have: false },
-//       { name: "Garlic", have: true },
-//       { name: "Tomato", have: true },
-//       { name: "Olive Oil", have: false },
-//       { name: "Parmesan", have: false },
-//     ],
-//     instructions: [
-//       "Boil pasta in salted water until al dente, reserve a cup of pasta water.",
-//       "Saute garlic in olive oil, add chopped tomato and bell pepper, cook until soft.",
-//       "Toss the cooked pasta into the sauce with a splash of pasta water to loosen it.",
-//       "Finish with grated parmesan and black pepper.",
-//     ],
-//     nutrition: { calories: 410, protein: 12, carbs: 64, fat: 12, fiber: 5, sugar: 6 },
-//     servingSize: "2 servings",
-//     tips: "The reserved starchy pasta water is the trick to a silky sauce that clings well.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r22",
-//     title: "Veg Noodles",
-//     cuisine: "Chinese",
-//     diet: ["Vegetarian", "Vegan"],
-//     difficulty: "Easy",
-//     time: 25,
-//     image: "/recipe-images/veg-noodles.svg",
-//     ingredients: [
-//       { name: "Noodles", have: false },
-//       { name: "Cabbage", have: false },
-//       { name: "Carrot", have: false },
-//       { name: "Capsicum", have: false },
-//       { name: "Soy Sauce", have: false },
-//       { name: "Garlic", have: true },
-//     ],
-//     instructions: [
-//       "Boil noodles until just cooked, rinse in cold water, and toss with a little oil.",
-//       "Stir-fry garlic on high heat, then add julienned cabbage, carrot, and capsicum.",
-//       "Add the noodles along with soy sauce and vinegar, toss well on high heat.",
-//       "Serve hot, garnished with spring onion.",
-//     ],
-//     nutrition: { calories: 350, protein: 9, carbs: 58, fat: 9, fiber: 4, sugar: 4 },
-//     servingSize: "2 servings",
-//     tips: "High heat and quick tossing is the secret to that smoky wok-fried flavor.",
-//     favorite: false,
-//   },
-//   {
-//     id: "r23",
-//     title: "Grilled Veg Sandwich",
-//     cuisine: "Continental",
-//     diet: ["Vegetarian"],
-//     difficulty: "Easy",
-//     time: 15,
-//     image: "/recipe-images/grilled-sandwich.svg",
-//     ingredients: [
-//       { name: "Bread", have: true },
-//       { name: "Cheese", have: false },
-//       { name: "Tomato", have: true },
-//       { name: "Cucumber", have: false },
-//       { name: "Butter", have: true },
-//     ],
-//     instructions: [
-//       "Layer bread slices with cheese, tomato, and cucumber.",
-//       "Butter the outer sides of the bread.",
-//       "Grill on a hot pan or sandwich griddle until golden and crisp on both sides.",
-//       "Slice and serve hot with ketchup or chutney.",
-//     ],
-//     nutrition: { calories: 290, protein: 9, carbs: 34, fat: 13, fiber: 3, sugar: 4 },
-//     servingSize: "1 sandwich",
-//     tips: "Press down gently while grilling for even, crisp browning.",
-//     favorite: false,
-//   },
-// ];
-
-// export const testimonials = [
-//   {
-//     id: "t1",
-//     name: "Ananya Shah",
-//     role: "Home cook, Ahmedabad",
-//     quote:
-//       "I stopped throwing away half-used vegetables. I just type in whatever's left in the fridge and get something genuinely good to cook.",
-//     rating: 5,
-//   },
-//   {
-//     id: "t2",
-//     name: "Marcus Webb",
-//     role: "Busy parent",
-//     quote:
-//       "The 30-minute filter is what sold me. Dinner used to be the most stressful part of my day — now it's actually kind of fun.",
-//     rating: 5,
-//   },
-//   {
-//     id: "t3",
-//     name: "Priya Nair",
-//     role: "Jain diet",
-//     quote:
-//       "Most recipe apps completely ignore Jain restrictions. This is the first one that gets it right without me having to double-check every ingredient.",
-//     rating: 4,
-//   },
-// ];
-
-// export const mockHistory = [
-//   { id: "h1", recipeId: "r1", generatedAt: "2026-07-08T18:20:00Z" },
-//   { id: "h2", recipeId: "r2", generatedAt: "2026-07-09T12:05:00Z" },
-//   { id: "h3", recipeId: "r1", generatedAt: "2026-07-09T19:40:00Z" },
-// ];
-
-
-
-
 export const CUISINES = [
   "North Indian",
   "South Indian",
@@ -734,7 +40,11 @@ export const mockRecipes = [
     difficulty: "Easy",
     time: 30,
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwl3mX9Zyzi9g8ZZTxxmuzItFu1F-nGBv5vZzq7_44A&s=10",
+     
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwl3mX9Zyzi9g8ZZTxxmuzItFu1F-nGBv5vZzq7_44A&s=10",
+    
+    youtubeVideo: "https://youtube.com/shorts/3ARWi3v_9wA?si=PoiExVG7nRUqFvEU",
+
     ingredients: [
       { name: "Paneer", have: true },
       { name: "Tomato", have: true },
@@ -844,7 +154,9 @@ export const mockRecipes = [
     time: 45,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9aKxnrzoojSUQkcXUHamAHOIf0LUNZDoqFQ34gIndWg&s=10",
-    ingredients: [
+    youtubeVideo: "https://www.youtube.com/shorts/rAgeH1v5SlQ",
+    
+      ingredients: [
       { name: "Dosa Batter", have: false },
       { name: "Potato", have: true },
       { name: "Onion", have: true },
@@ -882,7 +194,9 @@ export const mockRecipes = [
     time: 40,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxffiE9TCPPzMt6mpuio7Tm9sswNswy09UDKthv1TXqw&s=10",
-    ingredients: [
+    
+      youtubeVideo: "https://www.youtube.com/shorts/LmJxIK7X9vc",
+      ingredients: [
       { name: "Toor Dal", have: false },
       { name: "Drumstick", have: false },
       { name: "Tamarind", have: false },
@@ -917,7 +231,9 @@ export const mockRecipes = [
     time: 50,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj69CQoaUB983VVTvNDUaKrHfX4v5ECnOn1eNZyLT_FA&s=10",
-    ingredients: [
+    youtubeVideo: "https://youtube.com/shorts/eQ0vLBQiGRw?si=UO9bKf0GNize5c16",
+    
+      ingredients: [
       { name: "Black Lentils", have: false },
       { name: "Kidney Beans", have: false },
       { name: "Butter", have: true },
@@ -953,7 +269,9 @@ export const mockRecipes = [
     time: 60,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNCJo5BkcRuOBuKj3UAJ85PychLLsa7w2MCoxNQhslQQ&s=10",
-    ingredients: [
+    youtubeVideo: "https://youtube.com/shorts/WyrDe3jhtFQ?si=SGbDcvgp0UsTx8Kj",
+    
+      ingredients: [
       { name: "Surti Papdi", have: false },
       { name: "Purple Yam", have: false },
       { name: "Sweet Potato", have: false },
@@ -989,7 +307,9 @@ export const mockRecipes = [
     time: 50,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeADLONIUW85GclyAgxqCShJC8oNnRwccJmqC3ImoVpA&s=10",
-    ingredients: [
+    youtubeVideo: "https://youtube.com/shorts/EOZ49NpcnJo?si=xnoAQfgfmqq6MAxk",
+    
+      ingredients: [
       { name: "Chickpeas", have: false },
       { name: "Onion", have: true },
       { name: "Tomato", have: true },
@@ -1025,7 +345,9 @@ export const mockRecipes = [
     time: 45,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-KKeZ3DgScpXI2L35ejAqneitS4l6x9gwpjM-bUT_Mg&s=10",
-    ingredients: [
+    youtubeVideo: "https://youtube.com/shorts/h_VFhl8PO08?si=QvyWTiG_9QnUJi6T",
+    
+      ingredients: [
       { name: "Kidney Beans", have: false },
       { name: "Onion", have: true },
       { name: "Tomato", have: true },
@@ -1060,6 +382,7 @@ export const mockRecipes = [
     time: 30,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTICZDk1ahTsuTOAkhIzlg90UgVhyOe0F_hwT_z-xs_2g&s=10",
+    youtubeVideo: "https://youtube.com/shorts/awN10O1NZZs?si=-p7DkZ6ce4pIPsat",
     ingredients: [
       { name: "Idli Batter", have: false },
       { name: "Coconut", have: false },
@@ -1094,7 +417,9 @@ export const mockRecipes = [
     time: 25,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BYmQ_RXQvLAKxsrEuoh0WEvU3AB6Zn-zYqGZ5NIwtw&s=10",
-    ingredients: [
+    youtubeVideo: "https://youtube.com/shorts/UFp0Orc1ovE?si=nsmBLCUvX66SFoZj",
+    
+      ingredients: [
       { name: "Besan", have: false },
       { name: "Yogurt", have: false },
       { name: "Eno Fruit Salt", have: false },
@@ -1129,7 +454,9 @@ export const mockRecipes = [
     time: 45,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8EXpnS-vcbCUfFChxS6xgKURwCjthZerFuRX8J3q7iA&s=10",
-    ingredients: [
+   youtubeVideo: "https://youtube.com/shorts/YI2wZeGApNo?si=8g5vpeTY5QaN500B",
+   
+      ingredients: [
       { name: "Moth Beans Sprouts", have: false },
       { name: "Onion", have: true },
       { name: "Tomato", have: true },
@@ -1164,7 +491,10 @@ export const mockRecipes = [
     time: 25,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQBhVXsdzNf7mHWgLeiVtoNUEWxGoRi7JGRCjrRdMHkA&s=10",
-    ingredients: [
+    
+    
+    youtubeVideo: "https://youtube.com/shorts/HkINsvvT6MQ?si=Y94yKBEu3xUDWoGi",
+      ingredients: [
       { name: "Potato", have: true },
       { name: "Poppy Seeds", have: false },
       { name: "Green Chili", have: false },
@@ -1199,7 +529,9 @@ export const mockRecipes = [
     time: 45,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUIcKHp2cllWCn1Elog1vgX8hfhnl_U1ViahyrkfDh6A&s=10",
-       ingredients: [
+     youtubeVideo: "https://youtube.com/shorts/hhaa9_HgZ6k?si=ho_U0nju3D1riekn",
+     
+      ingredients: [
       { name: "Toor Dal", have: false },
       { name: "Wheat Flour", have: true },
       { name: "Jaggery", have: false },
@@ -1235,7 +567,9 @@ export const mockRecipes = [
     time: 35,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpSJQXK199S8lRUGb-M1Emn6pKpMBAtFz6068rQ6W42g&s=10",
-    ingredients: [
+   youtubeVideos: "https://youtube.com/shorts/ui_vu-eR3PQ?si=b3XL4Tb1bWiXzcD5",
+   
+      ingredients: [
       { name: "Toor Dal", have: false },
       { name: "Rice", have: true },
       { name: "Jaggery", have: false },
@@ -1272,7 +606,9 @@ export const mockRecipes = [
     time: 30,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxTDi2McozlxbvUQ6Xn_UtFrRLOItAGWtTB-Fwlf83YQ&s=10",
-    ingredients: [
+    youtubeVideo: "https://youtube.com/shorts/mBP199wkIzc?si=toeA1vZeycJgJVBA",
+    
+      ingredients: [
       { name: "Paneer", have: false },
       { name: "Capsicum", have: false },
       { name: "Onion", have: true },
@@ -1308,7 +644,10 @@ export const mockRecipes = [
     time: 30,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAaRUy0FFObLWAR0BjjePsAppzTqLgfIZmW34pGq-0HQ&s=10",
-    ingredients: [
+    youtubeVideo: "https://youtube.com/shorts/Wrg_s17qt9c?si=BAeYKFk7ca2T4NNo",
+    
+    
+      ingredients: [
       { name: "Rice", have: true },
       { name: "Moong Dal", have: false },
       { name: "Ghee", have: true },
@@ -1343,6 +682,7 @@ export const mockRecipes = [
     time: 40,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi1kcr-2q3h8HQpaMFaKh_EHLKKIVNbZ_35xEETZM8JA&s=10",
+    youtubeVideo: "https://youtube.com/shorts/qB6wJkjimwU?si=BueHAw094PHE9DYX",
     ingredients: [
       { name: "Potato", have: true },
       { name: "Cauliflower", have: false },
@@ -1380,6 +720,7 @@ export const mockRecipes = [
     time: 40,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7R9jPR9alugd9bFb6m140eARpLgbJ2DRcw5WIc0eJA&s=10",
+    youtubeVideo: "https://youtube.com/shorts/qlHTfoMinMU?si=mdRFEr77GiXedEYV",
     ingredients: [
       { name: "Khoya", have: false },
       { name: "Maida", have: false },
@@ -1415,6 +756,7 @@ export const mockRecipes = [
     time: 30,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSihXUqWEPEZwLabMmikWXcBni4HUtYhTb5psqG7ffexQ&s=10",
+    youtubeVideo: "https://youtube.com/shorts/xBFk1X267kc?si=wawOPq-g1Vem5djY",
     ingredients: [
       { name: "Whole Wheat Bun", have: false },
       { name: "Chickpeas", have: false },
@@ -1450,6 +792,7 @@ export const mockRecipes = [
     time: 25,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa9EyKG9tQ5w48gIscPVhpFdkyLeaqME_-iFpE-T5q3w&s=10",
+    youtubeVideo: "https://youtube.com/shorts/U-4MCjHtLIs?si=YGPkr6khnpqFfHKv",
     ingredients: [
       { name: "Pasta", have: false },
       { name: "Bell Pepper", have: false },
@@ -1486,6 +829,7 @@ export const mockRecipes = [
     time: 25,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvvc_zoPt2wmRxxeXDZ7OF0LIeHBeWrdalCKoxk3vTXA&s=10",
+    youtubeVideo: "https://youtube.com/shorts/FHf9xSBin-I?si=TUzesTcFoT6KDuZ0",
     ingredients: [
       { name: "Noodles", have: false },
       { name: "Cabbage", have: false },
@@ -1522,6 +866,7 @@ export const mockRecipes = [
     time: 15,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyqfLz5UngmrX3P9Rd9S-cWezwhADjuq0m5bcq1T-wjw&s=10",
+    youtubeVideo: "https://youtube.com/shorts/AB4kYl2GSfk?si=nFVT_6v6wpuXOvv7",
     ingredients: [
       { name: "Bread", have: true },
       { name: "Cheese", have: false },
