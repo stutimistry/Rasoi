@@ -2,6 +2,11 @@
 
 Rasoi is a modern recipe discovery and meal-planning web application built with **React.js** and **Vite**. It helps users discover recipes, manage favorites, view cooking history, create meal plans, and maintain a shopping list.
 
+## 🌐 Live Demo
+
+👉 https://rasoi23.netlify.app/
+
+
 ## ✨ Features
 
 * 🏠 Home page with recipe discovery
